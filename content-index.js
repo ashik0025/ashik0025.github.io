@@ -1,4 +1,4 @@
-// AUTO-GENERATED — do not edit. Rebuilt on every push by GitHub Actions.
+// AUTO-GENERATED — do not edit. Rebuilt on every push.
 window.SITE_CONTENT = {
   "posts": [
     {
@@ -14,7 +14,20 @@ window.SITE_CONTENT = {
       "type": "blog",
       "slug": "002",
       "content": "There is a particular quality to loneliness at 3 a.m. It is not the loud, gasping kind you feel in a crowded room. It is slower — a low-frequency thing, like the hum of a transformer in a substation, constant and barely audible unless you stop and listen.\n\nI have always been drawn to substations. There is something honest about them. They do what they are designed to do, without complaint, without recognition — they step down the voltage, deliver the current, and ask for nothing in return. Whole cities run on their quiet labour. Nobody writes poems about substations.\n\nMaybe I understand that.\n\nI took a walk tonight, as I often do when the equations in my head refuse to balance. The streets were mostly empty. A dog watched me from behind a gate. A rickshaw wallah was asleep under a flickering street lamp, one arm draped over his eyes like a man trying to block out the entire world.\n\nI thought: we are all just trying to find the right load to carry. Not so heavy that we burn out. Not so light that we have no reason to keep the circuit closed.\n\nI don't know what I am looking for on these walks. Maybe nothing. Maybe I just need to remember that the city is still there — still humming, still lit up, still asking to be witnessed.\n\nSo I witness it.\n\nAnd then I go home, and open my notebook, and write down what I saw. As if that changes anything. As if that makes the 3 a.m. any less quiet.\n\nIt doesn't.\n\nBut it makes it mine."
+    },
+    {
+      "title": "Nobody knows me",
+      "date": "2026-04-09",
+      "type": "poetry",
+      "slug": "003",
+      "content": "Nobody knows me\nWhat I have been going through,\nNobody knows\nNobody knew and will ever know.\nProbably nobody had ever tried to...\nWhat's it like when you've no one to talk to,\nNobody to think about, to walk with\nNobody knows.\n\nI'm like an isolated droplet when it drizzles,\nGone wild and then lost forever.\nNobody knows where to find\nNobody cares who to mind\nBecause nobody knows me."
     }
   ],
-  "photos": []
+  "photos": [
+    "001.jpg",
+    "002.jpg",
+    "003.jpg",
+    "506716334_2993898814103547_4336900386236922335_n.jpg",
+    "IMG_20230630_182858.jpg"
+  ]
 };

@@ -1,0 +1,60 @@
+name: Update Content Index
+
+on:
+  push:
+    paths:
+      - 'blogs/*.txt'
+      - 'photos/*.jpg'
+      - 'photos/*.jpeg'
+      - 'photos/*.png'
+      - 'photos/*.webp'
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate blogs/index.json
+        run: |
+          python3 - <<'EOF'
+          import os, json
+
+          folder = "blogs"
+          files = sorted([
+            f.replace(".txt", "")
+            for f in os.listdir(folder)
+            if f.endswith(".txt") and not f.startswith(".")
+          ])
+          with open(os.path.join(folder, "index.json"), "w") as fp:
+            json.dump(files, fp, indent=2)
+          print(f"blogs/index.json: {files}")
+          EOF
+
+      - name: Generate photos/index.json
+        run: |
+          python3 - <<'EOF'
+          import os, json
+
+          folder = "photos"
+          exts = {".jpg", ".jpeg", ".png", ".webp"}
+          files = sorted([
+            f for f in os.listdir(folder)
+            if os.path.splitext(f)[1].lower() in exts and not f.startswith(".")
+          ])
+          with open(os.path.join(folder, "index.json"), "w") as fp:
+            json.dump(files, fp, indent=2)
+          print(f"photos/index.json: {files}")
+          EOF
+
+      - name: Commit updated indexes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add blogs/index.json photos/index.json
+          git diff --staged --quiet || git commit -m "chore: auto-update content index [skip ci]"
+          git push

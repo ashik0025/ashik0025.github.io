@@ -157,7 +157,7 @@ async function renderHome() {
       <section class="hero">
         <div class="hero-circuit" aria-hidden="true">${heroCircuitSVG()}</div>
         <p class="hero-eyebrow">Electrical Engineer · Writer</p>
-        <h1 class="hero-name">Ashik Ahmed</h1><br/><h2 align="center"><em>Mr. Nobody</em></h2>
+        <h1 class="hero-name">Ashik Ahmed</h1><h2><br/><em>Mr. Nobody</em></h2>
         <div class="hero-divider"></div>
         <p class="hero-tagline">
           Between the silence of circuits and the noise of solitude,<br/>I write.
@@ -332,7 +332,7 @@ function renderAbout() {
   app.innerHTML = `
     <div class="about-page">
       <div class="about-header">
-        <h1 class="about-name">Ashik Ahmed</h1><br/><h2 align="center"><em>Mr. Nobody</em></h1>
+        <h1 class="about-name">Ashik Ahmed</h1><h2><br/><em>Mr. Nobody</em></h1>
         <p class="about-role">Electrical Engineer · Writer · Photographer</p>
       </div>
       <div class="about-body">

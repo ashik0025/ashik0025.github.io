@@ -24,7 +24,7 @@ ashik0025.github.io/
 ├── assets/
 │   └── favicon.svg
 ├── blogs/
-│   ├── 001.txt          ← your blog/poetry files
+│   ├── 001.txt          ← my blog/poetry files
 │   └── 002.txt
 └── photos/
     ├── 001.jpg          ← cover photo for blogs/001.txt

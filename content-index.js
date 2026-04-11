@@ -1,4 +1,5 @@
-// AUTO-GENERATED — do not edit. Rebuilt on every push.
+// AUTO-GENERATED -- do not edit manually.
+// Rebuilt by GitHub Actions on every push.
 window.SITE_CONTENT = {
   "posts": [
     {

@@ -22,13 +22,6 @@ window.SITE_CONTENT = {
       "type": "poetry",
       "slug": "003",
       "content": "Nobody knows me\nWhat I have been going through,\nNobody knows\nNobody knew and will ever know.\nProbably nobody had ever tried to...\nWhat's it like when you've no one to talk to,\nNobody to think about, to walk with\nNobody knows.\n\nI'm like an isolated droplet when it drizzles,\nGone wild and then lost forever.\nNobody knows where to find\nNobody cares who to mind\nBecause nobody knows me."
-    },
-    {
-      "title": "বেদনা...",
-      "date": "2026-04-09",
-      "type": "poetry",
-      "slug": "004",
-      "content": "এমনতো নয় তুমি থাকো আমার থেকে অনেক দূরে,\nযদিওবা যোজন-যোজন দূরত্বটা মনের ঘরে।"
     }
   ],
   "photos": [

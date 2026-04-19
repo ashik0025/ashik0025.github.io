@@ -10,7 +10,6 @@ env:
 jobs:
   bake:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
 
@@ -21,12 +20,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Generate content-index.js and bust cache in index.html
+      - name: Generate content-index.js
         run: |
           python3 - <<'PYEOF'
           import os, json, re, hashlib
 
-          def parse_txt(path, slug):
+          # ── Parse blog/vlog .txt files ─────────────────────────────────────
+          def parse_post(path, slug):
               with open(path, encoding="utf-8") as f:
                   raw = f.read()
               lines = raw.split("\n")
@@ -42,65 +42,94 @@ jobs:
               content = "\n".join(lines[content_start:]).strip()
               return {**meta, "slug": slug, "content": content}
 
-          # ── Collect blogs ──────────────────────────────────────────────────
+          # ── Parse thought .txt files ───────────────────────────────────────
+          # Format: optional "Date: YYYY-MM-DD" on first non-empty line, then text.
+          # If no date line, filename (without .txt) is used as the date slug.
+          def parse_thought(path, slug):
+              with open(path, encoding="utf-8") as f:
+                  raw = f.read().strip()
+              lines = raw.split("\n")
+              date = slug  # default: use filename
+              content_start = 0
+              if lines:
+                  m = re.match(r"^[Dd]ate\s*:\s*(.+)$", lines[0].strip())
+                  if m:
+                      date = m.group(1).strip()
+                      content_start = 1
+                      # skip blank lines after date
+                      while content_start < len(lines) and not lines[content_start].strip():
+                          content_start += 1
+              content = "\n".join(lines[content_start:]).strip()
+              return {"slug": slug, "date": date, "content": content}
+
+          # ── Collect posts ──────────────────────────────────────────────────
           posts = []
           if os.path.isdir("blogs"):
               for fname in sorted(os.listdir("blogs")):
                   if fname.endswith(".txt") and not fname.startswith("."):
                       slug = fname[:-4]
                       try:
-                          posts.append(parse_txt(os.path.join("blogs", fname), slug))
-                          print(f"  + blog: {fname}")
+                          posts.append(parse_post(os.path.join("blogs", fname), slug))
+                          print(f"  + post: {fname}")
                       except Exception as e:
-                          print(f"  ! skipped {fname}: {e}")
+                          print(f"  ! skipped post {fname}: {e}")
+
+          # ── Collect thoughts ───────────────────────────────────────────────
+          thought_list = []
+          if os.path.isdir("thoughts"):
+              for fname in sorted(os.listdir("thoughts")):
+                  if fname.endswith(".txt") and not fname.startswith("."):
+                      slug = fname[:-4]
+                      try:
+                          thought_list.append(parse_thought(os.path.join("thoughts", fname), slug))
+                          print(f"  + thought: {fname}")
+                      except Exception as e:
+                          print(f"  ! skipped thought {fname}: {e}")
 
           # ── Collect photos ─────────────────────────────────────────────────
           exts = {".jpg", ".jpeg", ".png", ".webp"}
-          photos = []
+          photo_list = []
           if os.path.isdir("photos"):
-              photos = sorted([
+              photo_list = sorted([
                   f for f in os.listdir("photos")
                   if os.path.splitext(f)[1].lower() in exts
                   and not f.startswith(".")
               ])
-              for p in photos:
+              for p in photo_list:
                   print(f"  + photo: {p}")
 
-          # ── Write content-index.js ─────────────────────────────────────────
+          # ── Write JS ───────────────────────────────────────────────────────
+          payload = {
+              "posts":    posts,
+              "thoughts": thought_list,
+              "photos":   photo_list,
+          }
           js  = "// AUTO-GENERATED -- do not edit manually.\n"
           js += "// Rebuilt by GitHub Actions on every push.\n"
           js += "window.SITE_CONTENT = "
-          js += json.dumps({"posts": posts, "photos": photos}, ensure_ascii=False, indent=2)
+          js += json.dumps(payload, ensure_ascii=False, indent=2)
           js += ";\n"
 
           with open("content-index.js", "w", encoding="utf-8") as f:
               f.write(js)
 
-          # ── Compute hash of content-index.js ──────────────────────────────
+          # ── Stamp cache-busting hash into index.html ───────────────────────
           digest = hashlib.md5(js.encode()).hexdigest()[:10]
-          print(f"\ncontent hash: {digest}")
 
-          # ── Stamp the hash into index.html ────────────────────────────────
           with open("index.html", "r", encoding="utf-8") as f:
               html = f.read()
 
-          # Replace any existing ?v=... or the placeholder __CONTENT_VERSION__
           html = re.sub(
               r'(content-index\.js\?v=)[^\'"]+',
               rf'\g<1>{digest}',
               html
           )
-          # Also handle the very first deploy where placeholder hasn't been stamped yet
-          html = html.replace(
-              'content-index.js?v=__CONTENT_VERSION__',
-              f'content-index.js?v={digest}'
-          )
 
           with open("index.html", "w", encoding="utf-8") as f:
               f.write(html)
 
-          print(f"index.html stamped with ?v={digest}")
-          print(f"\nDone: {len(posts)} post(s), {len(photos)} photo(s)")
+          print(f"\nDone: {len(posts)} post(s), {len(thought_list)} thought(s), {len(photo_list)} photo(s)")
+          print(f"Cache hash: {digest}")
           PYEOF
 
       - name: Commit and push

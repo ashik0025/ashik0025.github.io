@@ -1,45 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashik Ahmed</title>
+  <title>আশিক আহমেদ — Ashik Ahmed</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=Hind+Siliguri:wght@300;400;500;600&family=Noto+Serif+Bengali:wght@300;400;600;700&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="bg-texture"></div>
-  <div class="bg-grid"></div>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
 
   <header id="site-header">
     <div class="header-inner">
-      <div class="header-logo">
-        <a href="#home" class="logo-link">
-          <svg class="logo-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1"/>
-            <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" class="logo-text-svg">AA</text>
-          </svg>
-        </a>
-      </div>
-      <nav class="main-nav">
-        <a href="#home"    class="nav-link" data-page="home">Home</a>
-        <a href="#writing" class="nav-link" data-page="writing">Writing</a>
-        <a href="#gallery" class="nav-link" data-page="gallery">Gallery</a>
-        <a href="#about"   class="nav-link" data-page="about">About</a>
+      <a href="#home" class="site-logo">
+        <span class="logo-bn">আ</span><span class="logo-en">A</span>
+      </a>
+      <nav class="main-nav" role="navigation">
+        <a href="#home"     class="nav-link" data-page="home">Home</a>
+        <a href="#writing"  class="nav-link" data-page="writing">Writing</a>
+        <a href="#thoughts" class="nav-link" data-page="thoughts">Thoughts</a>
+        <a href="#gallery"  class="nav-link" data-page="gallery">Gallery</a>
+        <a href="#about"    class="nav-link" data-page="about">About</a>
       </nav>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span>
       </button>
     </div>
     <div class="mobile-nav" id="mobile-nav">
-      <a href="#home"    class="mob-link" data-page="home">Home</a>
-      <a href="#writing" class="mob-link" data-page="writing">Writing</a>
-      <a href="#gallery" class="mob-link" data-page="gallery">Gallery</a>
-      <a href="#about"   class="mob-link" data-page="about">About</a>
+      <a href="#home"     class="mob-link" data-page="home">Home</a>
+      <a href="#writing"  class="mob-link" data-page="writing">Writing</a>
+      <a href="#thoughts" class="mob-link" data-page="thoughts">Thoughts</a>
+      <a href="#gallery"  class="mob-link" data-page="gallery">Gallery</a>
+      <a href="#about"    class="mob-link" data-page="about">About</a>
     </div>
   </header>
 
@@ -47,40 +45,12 @@
 
   <footer id="site-footer">
     <div class="footer-inner">
-      <div class="footer-circuit">
-        <svg viewBox="0 0 300 30" xmlns="http://www.w3.org/2000/svg" class="circuit-line">
-          <line x1="0"   y1="15" x2="50"  y2="15" stroke="currentColor" stroke-width="0.8"/>
-          <circle cx="50"  cy="15" r="2" fill="currentColor"/>
-          <line x1="50"  y1="15" x2="50"  y2="5"  stroke="currentColor" stroke-width="0.8"/>
-          <line x1="50"  y1="5"  x2="80"  y2="5"  stroke="currentColor" stroke-width="0.8"/>
-          <line x1="80"  y1="5"  x2="80"  y2="25" stroke="currentColor" stroke-width="0.8"/>
-          <line x1="80"  y1="25" x2="110" y2="25" stroke="currentColor" stroke-width="0.8"/>
-          <line x1="110" y1="25" x2="110" y2="15" stroke="currentColor" stroke-width="0.8"/>
-          <circle cx="110" cy="15" r="2" fill="currentColor"/>
-          <line x1="110" y1="15" x2="150" y2="15" stroke="currentColor" stroke-width="0.8"/>
-          <circle cx="150" cy="15" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
-          <line x1="153" y1="15" x2="190" y2="15" stroke="currentColor" stroke-width="0.8"/>
-          <circle cx="190" cy="15" r="2" fill="currentColor"/>
-          <line x1="190" y1="15" x2="190" y2="5"  stroke="currentColor" stroke-width="0.8"/>
-          <line x1="190" y1="5"  x2="220" y2="5"  stroke="currentColor" stroke-width="0.8"/>
-          <line x1="220" y1="5"  x2="220" y2="25" stroke="currentColor" stroke-width="0.8"/>
-          <line x1="220" y1="25" x2="250" y2="25" stroke="currentColor" stroke-width="0.8"/>
-          <line x1="250" y1="25" x2="250" y2="15" stroke="currentColor" stroke-width="0.8"/>
-          <circle cx="250" cy="15" r="2" fill="currentColor"/>
-          <line x1="250" y1="15" x2="300" y2="15" stroke="currentColor" stroke-width="0.8"/>
-        </svg>
-      </div>
-      <p class="footer-text">Ashik Ahmed &mdash; Electrical Engineer &amp; Writer</p>
-      <p class="footer-sub">Somewhere between voltage and verse.</p>
+      <p class="footer-name">Ashik Ahmed</p>
+      <p class="footer-sub">আশিক আহমেদ &mdash; Writer &amp; Photographer</p>
     </div>
   </footer>
 
-  <!--
-    content-index.js is AUTO-GENERATED by GitHub Actions.
-    The ?v= query string is replaced with a content hash on every build,
-    forcing browsers and CDNs to always fetch the latest version.
-  -->
-  <script src="content-index.js?v=1937a8dfc3"></script>
+  <script src="content-index.js?v=__CONTENT_VERSION__"></script>
   <script src="app.js"></script>
 </body>
 </html>

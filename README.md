@@ -1,65 +1,38 @@
 # ashik0025.github.io
 
-Personal website of **Ashik Ahmed** — electrical engineer, writer, photographer.
+Personal site of **Ashik Ahmed** — আশিক আহমেদ
 
 ---
 
-## How it works (the reliable way)
-
-```
-You push files
-     │
-     ▼
-GitHub Actions runs bake-content.yml
-     │
-     ▼
-Python reads every .txt in blogs/ and every image in photos/
-     │
-     ▼
-Generates content-index.js  ←  ALL content embedded as a JS variable
-     │
-     ▼
-GitHub Pages serves the site
-     │
-     ▼
-Browser loads content-index.js — no fetching, no API, no cache issues
-```
-
-`window.SITE_CONTENT` is set before `app.js` runs.
-`app.js` reads it directly. **Zero network requests for content.**
-
----
-
-## 📁 Structure
+## Folder structure
 
 ```
 ashik0025.github.io/
 ├── index.html
 ├── style.css
 ├── app.js
-├── content-index.js         ← AUTO-GENERATED, do not edit manually
+├── content-index.js       ← AUTO-GENERATED, never edit manually
 ├── assets/
 │   └── favicon.svg
 ├── blogs/
-│   ├── 001.txt
-│   └── 002.txt
+│   └── 001.txt            ← Blog posts & poetry
+├── thoughts/
+│   └── 001.txt            ← Short thoughts / musings
 ├── photos/
-│   ├── 001.jpg              ← cover for blogs/001.txt
-│   └── citynight.jpg        ← no matching blog → Gallery
-└── .github/
-    └── workflows/
-        └── bake-content.yml ← runs on every push
+│   └── 001.jpg            ← 001.jpg = cover for blogs/001.txt
+└── .github/workflows/
+    └── bake-content.yml   ← Runs on every push
 ```
 
 ---
 
-## ✍️ Adding a Post or Poem
+## ✍️ Adding a blog post or poem
 
-Create a `.txt` in `blogs/` with this format:
+Create a `.txt` in `blogs/`:
 
 ```
-Title: Your Title Here
-Date: 2024-03-15
+Title: Your Title
+Date: 2025-04-19
 Type: poetry
 
 ---
@@ -67,58 +40,50 @@ Type: poetry
 Your content here.
 
 Blank line = new paragraph.
-For poetry, every line break is preserved as-is.
+Type can be: blog, poetry, vlog
 ```
 
-Push → GitHub Actions bakes it into `content-index.js` → live within ~90 seconds.
-
 ---
 
-## 📷 Adding Photos
+## 💭 Adding a thought
 
-### Cover photo for a post
-Name the photo the **same** as the blog file:
-
-| Blog              | Cover photo         |
-|-------------------|---------------------|
-| `blogs/003.txt`   | `photos/003.jpg`    |
-| `blogs/rain.txt`  | `photos/rain.jpg`   |
-
-### Gallery-only photo
-Name it anything that has no matching blog:
+Create a `.txt` in `thoughts/`:
 
 ```
-photos/rooftop.jpg      → Gallery page only
-photos/powerlines.jpg   → Gallery page only
+Date: 2025-04-19
+
+Just write here. No title needed.
+Can be in English or বাংলা or both.
 ```
 
-Supported formats: `.jpg` `.jpeg` `.png` `.webp`
+The date line is optional — if missing, the filename is used as the date label.
 
 ---
 
-## 🚀 First-Time Setup
+## 📷 Adding photos
 
-1. Create a repo named **exactly** `ashik0025.github.io` — keep it **public**
-2. Push all these files to `main`
-3. **Settings → Pages → Deploy from branch → main / root**
-4. Site is live at `https://ashik0025.github.io`
+| Want | Do |
+|---|---|
+| Cover for a post | Name photo same as post: `blogs/003.txt` → `photos/003.jpg` |
+| Gallery only | Name it anything else: `photos/sky.jpg` |
 
-On every subsequent push, the Action rebuilds `content-index.js` automatically.
-No manual steps. No index files to maintain.
-
----
-
-## 🛠 Troubleshooting
-
-**Content not updating after push?**
-- Go to your repo → **Actions** tab → confirm the "Bake Content Index" job ran successfully (green ✓)
-- If it failed, click the failed run to read the error log
-- Hard-refresh the site: `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac)
-
-**Action never ran?**
-- Make sure `.github/workflows/bake-content.yml` was committed to `main`
-- Check Settings → Actions → General → ensure Actions are enabled
+Formats: `.jpg` `.jpeg` `.png` `.webp`
 
 ---
 
-*Between voltage and verse.*
+## How it works
+
+Every push triggers GitHub Actions → Python reads all files → bakes everything into `content-index.js` → stamps a cache-busting hash into `index.html` → commits back → site updates in ~90 seconds.
+
+**No manual index files. No API calls. Just push and it works.**
+
+---
+
+## First-time setup
+
+1. Create repo named `ashik0025.github.io` (public)
+2. Push all files to `main`
+3. Settings → Pages → Deploy from branch → main / root
+4. Settings → Actions → General → Workflow permissions → Read and write
+
+---

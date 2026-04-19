@@ -92,16 +92,16 @@ function renderHome() {
     <div>
       <!-- HERO -->
       <section class="hero">
-        <div class="hero-kicker">Writer &amp; Photographer</div>
+        <div class="hero-kicker">Writer &amp; Amateur Photographer</div>
         <h1 class="hero-name">
-          Ashik<br/>Ahmed
+          Ashik Ahmed
           <span class="hero-name-bn">আশিক আহমেদ</span>
         </h1>
         <div class="hero-line">
           <div class="hero-line-bar"></div>
           <p class="hero-tagline">
-            Words, photographs, and the quiet hours between.<br/>
-            লেখা, ছবি, আর মাঝে মাঝে একটু নিজের কথা।
+            Words, snaps, and the quiet moments between.<br/>
+            লেখা, ছবি, আর কিছু নিশ্চুপ মুহূর্ত।
           </p>
         </div>
         <div class="hero-actions">
@@ -210,8 +210,8 @@ function renderThoughts() {
     <div>
       <div class="page-head">
         <div class="page-head-eyebrow">Thoughts</div>
-        <h1 class="page-head-title">চিন্তা &amp; <em>Musings</em></h1>
-        <p class="page-head-sub">Unfiltered. No titles. Just thoughts.</p>
+        <h1 class="page-head-title">ভাবনা &amp; <em>Musings</em></h1>
+        <p class="page-head-sub">Unfiltered. No strings attached. Just thoughts.</p>
       </div>
       <div class="thoughts-page">
         ${all.length

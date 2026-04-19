@@ -94,7 +94,7 @@ function renderHome() {
       <section class="hero">
         <div class="hero-kicker">Writer &amp; Amateur Photographer</div>
         <h1 class="hero-name">
-          Ashik Ahmed
+          Ashik
           <span class="hero-name-bn">আশিক আহমেদ</span>
         </h1>
         <div class="hero-line">

@@ -21,10 +21,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Generate content-index.js
+      - name: Generate content-index.js and bust cache in index.html
         run: |
           python3 - <<'PYEOF'
-          import os, json, re
+          import os, json, re, hashlib
 
           def parse_txt(path, slug):
               with open(path, encoding="utf-8") as f:
@@ -42,30 +42,31 @@ jobs:
               content = "\n".join(lines[content_start:]).strip()
               return {**meta, "slug": slug, "content": content}
 
-          blog_dir = "blogs"
+          # ── Collect blogs ──────────────────────────────────────────────────
           posts = []
-          if os.path.isdir(blog_dir):
-              for fname in sorted(os.listdir(blog_dir)):
+          if os.path.isdir("blogs"):
+              for fname in sorted(os.listdir("blogs")):
                   if fname.endswith(".txt") and not fname.startswith("."):
                       slug = fname[:-4]
                       try:
-                          posts.append(parse_txt(os.path.join(blog_dir, fname), slug))
-                          print(f"  + {fname}")
+                          posts.append(parse_txt(os.path.join("blogs", fname), slug))
+                          print(f"  + blog: {fname}")
                       except Exception as e:
                           print(f"  ! skipped {fname}: {e}")
 
-          photo_dir = "photos"
+          # ── Collect photos ─────────────────────────────────────────────────
           exts = {".jpg", ".jpeg", ".png", ".webp"}
           photos = []
-          if os.path.isdir(photo_dir):
+          if os.path.isdir("photos"):
               photos = sorted([
-                  f for f in os.listdir(photo_dir)
+                  f for f in os.listdir("photos")
                   if os.path.splitext(f)[1].lower() in exts
                   and not f.startswith(".")
               ])
               for p in photos:
-                  print(f"  + {p}")
+                  print(f"  + photo: {p}")
 
+          # ── Write content-index.js ─────────────────────────────────────────
           js  = "// AUTO-GENERATED -- do not edit manually.\n"
           js += "// Rebuilt by GitHub Actions on every push.\n"
           js += "window.SITE_CONTENT = "
@@ -75,16 +76,40 @@ jobs:
           with open("content-index.js", "w", encoding="utf-8") as f:
               f.write(js)
 
-          print(f"Done: {len(posts)} post(s), {len(photos)} photo(s)")
+          # ── Compute hash of content-index.js ──────────────────────────────
+          digest = hashlib.md5(js.encode()).hexdigest()[:10]
+          print(f"\ncontent hash: {digest}")
+
+          # ── Stamp the hash into index.html ────────────────────────────────
+          with open("index.html", "r", encoding="utf-8") as f:
+              html = f.read()
+
+          # Replace any existing ?v=... or the placeholder __CONTENT_VERSION__
+          html = re.sub(
+              r'(content-index\.js\?v=)[^\'"]+',
+              rf'\g<1>{digest}',
+              html
+          )
+          # Also handle the very first deploy where placeholder hasn't been stamped yet
+          html = html.replace(
+              'content-index.js?v=__CONTENT_VERSION__',
+              f'content-index.js?v={digest}'
+          )
+
+          with open("index.html", "w", encoding="utf-8") as f:
+              f.write(html)
+
+          print(f"index.html stamped with ?v={digest}")
+          print(f"\nDone: {len(posts)} post(s), {len(photos)} photo(s)")
           PYEOF
 
-      - name: Commit and push content-index.js
+      - name: Commit and push
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content-index.js
+          git add content-index.js index.html
           if git diff --staged --quiet; then
-            echo "No changes to content-index.js."
+            echo "Nothing changed."
           else
             git commit -m "chore: rebuild content index [skip ci]"
             git push origin main

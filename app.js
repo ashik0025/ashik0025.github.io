@@ -100,7 +100,7 @@ function renderHome() {
         <div class="hero-line">
           <div class="hero-line-bar"></div>
           <p class="hero-tagline">
-            Words, snaps, and the quiet moments between.<br/>
+            Words, snaps, and some quiet moments in-between.<br/>
             লেখা, ছবি, আর কিছু নিশ্চুপ মুহূর্ত।
           </p>
         </div>

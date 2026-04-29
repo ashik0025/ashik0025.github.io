@@ -43,6 +43,11 @@ window.SITE_CONTENT = {
       "slug": "thoughts_001",
       "date": "2020-04-12",
       "content": "এমনতো নয় তুমি থাকো আমার থেকে অনেক দূরে,\nযদিওবা যোজন-যোজন দূরত্বটা মনের ঘরে।"
+    },
+    {
+      "slug": "thoughts_002",
+      "date": "2026-04-29",
+      "content": "Just need a person to talk to -\nNothing more nothing less,\nThat's how lonely I am."
     }
   ],
   "photos": [

@@ -48,6 +48,11 @@ window.SITE_CONTENT = {
       "slug": "thoughts_002",
       "date": "2026-04-29",
       "content": "Just need a person to talk to -\nNothing more nothing less,\nThat's how lonely I am."
+    },
+    {
+      "slug": "thoughts_003",
+      "date": "2026-05-01",
+      "content": "\"ডুবেছি আমি তোমার চোখের অনন্ত মায়ায়,\nবুঝিনি কভূ সেই মায়া তো আমার তরে নয়।\""
     }
   ],
   "photos": [

@@ -58,6 +58,11 @@ window.SITE_CONTENT = {
       "slug": "thoughts_004",
       "date": "2026-05-03",
       "content": "How can I tell her that I love her,\nthat I have to love her..."
+    },
+    {
+      "slug": "thoughts_005",
+      "date": "2026-05-04",
+      "content": "My wholole life is like a maze,\nBut no one to explore, to amaze."
     }
   ],
   "photos": [

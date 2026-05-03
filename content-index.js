@@ -53,6 +53,11 @@ window.SITE_CONTENT = {
       "slug": "thoughts_003",
       "date": "2026-05-01",
       "content": "\"ডুবেছি আমি তোমার চোখের অনন্ত মায়ায়,\nবুঝিনি কভূ সেই মায়া তো আমার তরে নয়।\""
+    },
+    {
+      "slug": "thoughts_004",
+      "date": "2026-05-01",
+      "content": "How can I tell her that I love her,\nthat I have to love her..."
     }
   ],
   "photos": [

@@ -62,7 +62,7 @@ window.SITE_CONTENT = {
     {
       "slug": "thoughts_005",
       "date": "2026-05-04",
-      "content": "My wholole life is like a maze,\nBut no one to explore, to amaze."
+      "content": "My whole life is just like a maze,\nNo one to explore, no one to amaze."
     }
   ],
   "photos": [

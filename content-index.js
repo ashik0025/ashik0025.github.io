@@ -68,6 +68,11 @@ window.SITE_CONTENT = {
       "slug": "thoughts_006",
       "date": "2026-05-04",
       "content": "নজরুল তাঁর 'কবি-রাণী' কবিতাটা এভাবে শুরু করেছেন,\n\"তুমি আমায় ভালোবাসো তাই তো আমি কবি,\nআমার এ রূপ - সে যে তোমায় ভালোবাসার ছবি।\"\n\nআর কথাগুলো আমি বললে এভাবে হতো,\n\"তোমায় আমি ভালোবাসি তাই তো আমি কবি,\nআমার এ রূপ - সে যে তোমায় ভালোবাসার ছবি।\""
+    },
+    {
+      "slug": "thoughts_007",
+      "date": "2026-05-06",
+      "content": "Everyone is convinced that women are forced as being a product in this market economy. But nobody understands how men are considered as a product as soon as they are born. The only goal of a man's life is to be a well established, self sustained money making machine. The others are just by-products."
     }
   ],
   "photos": [

@@ -36,6 +36,13 @@ window.SITE_CONTENT = {
       "type": "poetry",
       "slug": "005",
       "content": "ভাবছি একটা গল্প লিখব।\nযে গল্পে তোমার কথা থাকবে\nতোমাকে কাছে পাওয়ার ব্যকুলতা থাকবে\nতোমার জন্য অস্থিরতা থাকবে\nআর তোমাকে না পাওয়ার \nহতাশা দিয়ে শেষ হবে সে গল্প।\n.\nতোমায় নিয়ে লিখতে গিয়েই প্রতিবার\nহোঁচট খায় কলম, তায়ের পর তা \nপাতা নষ্ট হয় তবু একটি বাক্যও\nপূর্ণ হয়ে ওঠে না।\nকই, আগে তো কখনো এমন হয় নি,\nআগে তো কখনো ভাবতে হয়নি -\nকি লিখব? কেন লিখব?\nএখন তোমায় নিয়ে ভাবতে বসে\nকি লিখব খুঁজে পাই না।\nযদিওবা কিছু লিখতে যাই -\n'কেন লিখছি' এই ধাঁধার সমাধান\nকরতে মন চায় না।\nকই, আগে তো কখনো এমন ছিল না,\nআগে তো কলমের  পিছুটান ছিল না।\nতবে এখন কেন এমন!\n.\nতাইতো বলি, তুমি এক অসম্ভাবী\nআমার ভাগ্যাকাশে তুমি অমবশ্যা\nকিংবা আমার জন্য তুমি বিশ্বব্রাহ্মন্ডের\nএক অজানা কৃষ্ণবিবর -\nতোমাতেই যেন হারিয়ে যাই নিরবধি\nঅনুভবে ক্ষণে ক্ষণে\nতুমি থাকলেও - আবার তুমি নেই\nআমার ইন্দ্রিয়ের ত্রিসীমানায়;\nতুমি এক অসম্ভাবী।।"
+    },
+    {
+      "title": "na kisī kī aañkh kā nuur huuñ",
+      "date": "2026-05-09",
+      "type": "blog",
+      "slug": "006",
+      "content": "I have tried to be with friends, without friends; with family, without family, with colleagues, without colleagues. But at every instance I am just a tool for others convenience. They need me, so they seek me. Nobody asks me how I'm doing, what are things going lately. Nobody. \n\nYears back I had heard the beautiful verse from Muztar Khairabadi recited by Farhan Akhtar. Never thought those lines would be so coincidentally relatable to me. Too good to be true, huh. \n\n\n\n\"na kisī kī aañkh kā nuur huuñ na kisī ke dil kā qarār huuñ\nkisī kaam meñ jo na aa sake maiñ vo ek musht-e-ġhubār huuñ\n\nna davā-e-dard-e-jigar huuñ maiñ na kisī kī mīThī nazar huuñ maiñ\nna idhar huuñ maiñ na udhar huuñ maiñ na shakeb huuñ na qarār huuñ\n\nmirā vaqt mujh se bichhaḌ gayā mirā rañg-rūp bigaḌ gayā\njo ḳhizāñ se baaġh ujaḌ gayā maiñ usī kī fasl-e-bahār huuñ\n\npa.e fātiha koī aa.e kyuuñ koī chaar phuul chaḌhā.e kyuuñ\nkoī aa ke sham' jalā.e kyuuñ maiñ vo bekasī kā mazār huuñ\n\nna maiñ laag huuñ na lagāv huuñ na suhāg huuñ na subhāv huuñ\njo bigaḌ gayā vo banāv huuñ jo nahīñ rahā vo siñgār huuñ\n\nmaiñ nahīñ huuñ naġhma-e-jāñ-fazā mujhe sun ke koī karegā kyā\nmaiñ baḌe birog kī huuñ sadā maiñ baḌe dukhī kī pukār huuñ\n\nna maiñ 'muztar' un kā habīb huuñ na maiñ 'muztar' un kā raqīb huuñ\njo bigaḌ gayā vo nasīb huuñ jo ujaḌ gayā vo dayār huuñ\"\n.\nBook : khirman (Pg. 95) Author : Muztar Khairabadi Publication : javed Akhtar (2015) Edition : 2015"
     }
   ],
   "thoughts": [

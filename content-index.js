@@ -80,6 +80,11 @@ window.SITE_CONTENT = {
       "slug": "thoughts_007",
       "date": "2026-05-06",
       "content": "Everyone is convinced that women are forced as being a product in this market economy. But nobody understands how men are considered as a product as soon as they are born. The only goal of a man's life is to be a well established, self sustained money making machine. The others are just by-products."
+    },
+    {
+      "slug": "thoughts_008",
+      "date": "2026-05-06",
+      "content": "Always in the wrong place\nAlways at the wrong time..."
     }
   ],
   "photos": [

@@ -85,6 +85,11 @@ window.SITE_CONTENT = {
       "slug": "thoughts_008",
       "date": "2026-05-06",
       "content": "Always in the wrong place\nAlways at the wrong time..."
+    },
+    {
+      "slug": "thoughts_009",
+      "date": "2026-05-21",
+      "content": "I need to overcome convenience and embrace uncertainty."
     }
   ],
   "photos": [

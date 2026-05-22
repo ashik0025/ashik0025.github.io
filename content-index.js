@@ -89,7 +89,7 @@ window.SITE_CONTENT = {
     {
       "slug": "thoughts_009",
       "date": "2026-05-21",
-      "content": "I need to overcome convenience and embrace uncertainty."
+      "content": "I need to overcome convenience \nand embrace uncertainty."
     }
   ],
   "photos": [
